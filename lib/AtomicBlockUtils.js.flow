@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule AtomicBlockUtils
- * @typechecks
+ * @format
  * @flow
  */
 
@@ -26,10 +26,7 @@ const SelectionState = require('./SelectionState');
 const generateRandomKey = require('./generateRandomKey');
 const moveBlockInContentState = require('./moveBlockInContentState');
 
-const {
-  List,
-  Repeat
-} = Immutable;
+const { List, Repeat } = Immutable;
 
 const AtomicBlockUtils = {
   insertAtomicBlock: function (editorState: EditorState, entityKey: string, character: string): EditorState {

@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule DraftEditorContents.react
- * @typechecks
+ * @format
  * @flow
  */
 
@@ -142,7 +142,7 @@ class DraftEditorContents extends React.Component<Props> {
         tree: editorState.getBlockTree(key)
       };
 
-      const configForType = blockRenderMap.get(blockType);
+      const configForType = blockRenderMap.get(blockType) || blockRenderMap.get('unstyled');
       const wrapperTemplate = configForType.wrapper;
 
       const Element = configForType.element || blockRenderMap.get('unstyled').element;
