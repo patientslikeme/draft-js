@@ -7,6 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule DraftEditorCompositionHandler
+ * @format
  * @flow
  */
 
@@ -162,12 +163,11 @@ var DraftEditorCompositionHandler = {
       editorState.getSelection(),
     );
 
-    const mustReset = (
+    const mustReset =
       !composedChars ||
       isSelectionAtLeafStart(editorState) ||
       currentStyle.size > 0 ||
-      entityKey !== null
-    );
+      entityKey !== null;
 
     if (mustReset) {
       editor.restoreEditorDOM();
@@ -186,11 +186,7 @@ var DraftEditorCompositionHandler = {
         entityKey,
       );
       editor.update(
-        EditorState.push(
-          editorState,
-          contentState,
-          'insert-characters',
-        ),
+        EditorState.push(editorState, contentState, 'insert-characters'),
       );
       return;
     }

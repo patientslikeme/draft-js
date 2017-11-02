@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule getDraftEditorSelectionWithNodes
- * @typechecks
+ * @format
  * @flow
  */
 
@@ -148,7 +148,7 @@ function getPointForNonTextNode(
 
   invariant(
     offsetKey != null ||
-    editorRoot && (editorRoot === node || editorRoot.firstChild === node),
+      (editorRoot && (editorRoot === node || editorRoot.firstChild === node)),
     'Unknown node in selection range.',
   );
 

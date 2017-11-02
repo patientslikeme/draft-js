@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule DraftEditorPlaceholder.react
- * @typechecks
+ * @format
  * @flow
  */
 
@@ -37,10 +37,8 @@ class DraftEditorPlaceholder extends React.Component<Props> {
   shouldComponentUpdate(nextProps: Props): boolean {
     return (
       this.props.text !== nextProps.text ||
-      (
-        this.props.editorState.getSelection().getHasFocus() !==
+      this.props.editorState.getSelection().getHasFocus() !==
         nextProps.editorState.getSelection().getHasFocus()
-      )
     );
   }
 

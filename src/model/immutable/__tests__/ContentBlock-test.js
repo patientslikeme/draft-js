@@ -7,6 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @emails oncall+ui_infra
+ * @format
  */
 
 'use strict';
@@ -16,10 +17,7 @@ jest.disableAutomock();
 var CharacterMetadata = require('CharacterMetadata');
 var ContentBlock = require('ContentBlock');
 var Immutable = require('immutable');
-var {
-  NONE,
-  BOLD,
-} = require('SampleDraftInlineStyle');
+var {NONE, BOLD} = require('SampleDraftInlineStyle');
 
 describe('ContentBlock', () => {
   var ENTITY_KEY = 'x';
@@ -39,14 +37,34 @@ describe('ContentBlock', () => {
     });
   }
 
+  it('must have appropriate default values', () => {
+    const text = 'Alpha';
+    const block = new ContentBlock({
+      key: 'a',
+      type: 'unstyled',
+      text,
+    });
+
+    const characterList = Immutable.List(
+      Immutable.Repeat(CharacterMetadata.EMPTY, text.length),
+    );
+
+    expect(block.getKey()).toBe('a');
+    expect(block.getText()).toBe('Alpha');
+    expect(block.getType()).toBe('unstyled');
+    expect(block.getLength()).toBe(5);
+    expect(block.getCharacterList().count()).toBe(5);
+    expect(block.getCharacterList()).toEqual(characterList);
+  });
+
   describe('basic retrieval', () => {
     it('must provide default values', () => {
       var block = new ContentBlock();
       expect(block.getType()).toBe('unstyled');
       expect(block.getText()).toBe('');
-      expect(
-        Immutable.is(block.getCharacterList(), Immutable.List()),
-      ).toBe(true);
+      expect(Immutable.is(block.getCharacterList(), Immutable.List())).toBe(
+        true,
+      );
     });
 
     it('must retrieve properties', () => {

@@ -106,6 +106,31 @@ for details on usage.
 
 ### Behavior (Optional)
 
+### autoCapitalize?: string
+
+```
+autoCapitalize?: string
+```
+
+Set if auto capitalization is turned on and how it behaves. More about platform availability and usage can [be found on mdn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-autocapitalize).
+
+### autoComplete?: string
+
+```
+autoComplete?: string
+```
+
+Set if auto complete is turned on and how it behaves. More about platform availability and usage can [be found on mdn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-autocomplete).
+
+### autoCorrect?: string
+
+```
+autoCorrect?: string
+```
+
+Set if auto correct is turned on and how it behaves. More about platform availability and usage can [be found on mdn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-autocorrect).
+
+
 #### readOnly
 ```
 readOnly?: boolean
@@ -245,10 +270,28 @@ onTab?: (e: SyntheticKeyboardEvent) => void
 onUpArrow?: (e: SyntheticKeyboardEvent) => void
 ```
 
+#### onRightArrow
+```
+onRightArrow?: (e: SyntheticKeyboardEvent) => void
+```
+
 #### onDownArrow
 ```
 onDownArrow?: (e: SyntheticKeyboardEvent) => void
 ```
+#### keyBindingFn
+
+```
+keyBindingFn?: (e: SyntheticKeyboardEvent) => void
+```
+
+This prop lets you handle key events directly and provides an opportunity to return custom editor commands. You can find a more detailed explanation of this [here](/docs/advanced-topics-key-bindings.html).
+
+#### onLeftArrow
+```
+onLeftArrow?: (e: SyntheticKeyboardEvent) => void
+```
+
 ### Mouse events
 
 ### onFocus
